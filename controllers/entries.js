@@ -19,11 +19,20 @@ const createEntry = async (req, res = response) => {
   }
 };
 
-const getEntries = (req, res = response) => {
-  res.json({
-    ok: true,
-    message: "Hello World",
-  });
+const getEntries = async (req, res = response) => {
+  try {
+    const entries = await Entry.find();
+
+    res.json({
+      ok: true,
+      entries,
+    });
+  } catch (error) {
+    res.status(500).json({
+      ok: false,
+      message: "Error, please contact the administrator",
+    });
+  }
 };
 
 module.exports = {
