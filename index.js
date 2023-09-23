@@ -1,26 +1,21 @@
-/*
-Rutas leer y crear entradas en el blog
-host + /api/entries
-*/
-
 const express = require("express");
 require("dotenv").config();
+const { dbConnection } = require("./database/config");
 
+// Crear el servidor de express
 const app = express();
+
+// Base de datos
+dbConnection();
+
+// Direcrorio publico
+app.use(express.static("public"));
+
+// Lectura y parseo del body
+app.use(express.json());
 
 app.use("/api/entries", require("./routes/entries"));
 
-// app.get("/", (req, res) => {
-//   res.json({
-//     ok: true,
-//     message: "Hello World",
-//   });
-// });
-
-// Directorio publico
-
-app.use(express.static("public"));
-
 app.listen(process.env.PORT, () => {
-  console.log("Listening");
+  console.log("Servidor corriendo en puerto " + process.env.PORT + " - OK");
 });
