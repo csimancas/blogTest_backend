@@ -8,18 +8,24 @@ Asegúrate de tener instalados Node.js y npm en tu sistema.
 
 ## Instalación
 
-```bash
 # Clona el repositorio
+
 git clone https://github.com/csimancas/blogTest_backend.git
 
 # Accede al directorio del proyecto
+
 cd blogTest_backend
 
 # Instala las dependencias
+
 npm install
 
 ## Correr proyecto
+
 npm run dev
 
 Este proyecto estara disponible en el puerto 4001.
+
+```
+
 ```
